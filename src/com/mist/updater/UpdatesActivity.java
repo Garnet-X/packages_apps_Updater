@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.crdroid.updater;
+package com.mist.updater;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -66,15 +66,15 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
-import com.crdroid.updater.controller.UpdaterController;
-import com.crdroid.updater.controller.UpdaterService;
-import com.crdroid.updater.download.DownloadClient;
-import com.crdroid.updater.misc.BuildInfoUtils;
-import com.crdroid.updater.misc.Constants;
-import com.crdroid.updater.misc.StringGenerator;
-import com.crdroid.updater.misc.Utils;
-import com.crdroid.updater.model.Update;
-import com.crdroid.updater.model.UpdateInfo;
+import com.mist.updater.controller.UpdaterController;
+import com.mist.updater.controller.UpdaterService;
+import com.mist.updater.download.DownloadClient;
+import com.mist.updater.misc.BuildInfoUtils;
+import com.mist.updater.misc.Constants;
+import com.mist.updater.misc.StringGenerator;
+import com.mist.updater.misc.Utils;
+import com.mist.updater.model.Update;
+import com.mist.updater.model.UpdateInfo;
 
 import java.io.File;
 import java.io.IOException;

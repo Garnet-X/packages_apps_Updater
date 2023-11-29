@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.crdroid.updater;
+package com.mist.updater;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -53,14 +53,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import com.crdroid.updater.controller.UpdaterController;
-import com.crdroid.updater.controller.UpdaterService;
-import com.crdroid.updater.misc.BuildInfoUtils;
-import com.crdroid.updater.misc.Constants;
-import com.crdroid.updater.misc.StringGenerator;
-import com.crdroid.updater.misc.Utils;
-import com.crdroid.updater.model.UpdateInfo;
-import com.crdroid.updater.model.UpdateStatus;
+import com.mist.updater.controller.UpdaterController;
+import com.mist.updater.controller.UpdaterService;
+import com.mist.updater.misc.BuildInfoUtils;
+import com.mist.updater.misc.Constants;
+import com.mist.updater.misc.StringGenerator;
+import com.mist.updater.misc.Utils;
+import com.mist.updater.model.UpdateInfo;
+import com.mist.updater.model.UpdateStatus;
 
 import java.io.IOException;
 import java.text.DateFormat;
