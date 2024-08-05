@@ -66,7 +66,7 @@
                     android:paddingBottom="16dp"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="56sp"
-                    tools:text="EverestOS"/>
+                    tools:text="MistOS"/>
 
                 <TextView
                     android:id="@+id/header_build_version"
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.everest.updater.UpdateView
+                <com.mist.updater.UpdateView
                     android:id="@+id/updateView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

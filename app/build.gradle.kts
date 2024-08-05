@@ -1,7 +1,7 @@
 import java.util.Properties
-import com.everest.generatebp.GenerateBpPlugin
-import com.everest.generatebp.GenerateBpPluginExtension
-import com.everest.generatebp.models.Module
+import com.mist.generatebp.GenerateBpPlugin
+import com.mist.generatebp.GenerateBpPluginExtension
+import com.mist.generatebp.models.Module
 
 plugins {
     id("com.android.application")
@@ -18,7 +18,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.everest:gradle-generatebp:+")
+        classpath("com.mist:gradle-generatebp:+")
     }
 }
 
@@ -34,7 +34,7 @@ android {
     namespace = "com.voltage.updater"
 
     defaultConfig {
-        applicationId = "com.everest.updater"
+        applicationId = "com.mist.updater"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
