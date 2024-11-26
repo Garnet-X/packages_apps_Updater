@@ -1,7 +1,7 @@
 import java.util.Properties
-import com.rising.generatebp.GenerateBpPlugin
-import com.rising.generatebp.GenerateBpPluginExtension
-import com.rising.generatebp.models.Module
+import com.mist.generatebp.GenerateBpPlugin
+import com.mist.generatebp.GenerateBpPluginExtension
+import com.mist.generatebp.models.Module
 
 plugins {
     id("com.android.application")
@@ -18,7 +18,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.rising:gradle-generatebp:+")
+        classpath("com.mist:gradle-generatebp:+")
     }
 }
 
@@ -31,10 +31,10 @@ val keystoreProperties = Properties().apply {
 
 android {
     compileSdk = 34
-    namespace = "com.rising.updater"
+    namespace = "com.mist.updater"
 
     defaultConfig {
-        applicationId = "com.rising.updater"
+        applicationId = "com.mist.updater"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
