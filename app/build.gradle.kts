@@ -1,7 +1,7 @@
 import java.util.Properties
-import com.mist.generatebp.GenerateBpPlugin
-import com.mist.generatebp.GenerateBpPluginExtension
-import com.mist.generatebp.models.Module
+import org.lineageos.generatebp.GenerateBpPlugin
+import org.lineageos.generatebp.GenerateBpPluginExtension
+import org.lineageos.generatebp.models.Module
 
 plugins {
     id("com.android.application")
@@ -18,7 +18,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.mist:gradle-generatebp:+")
+        classpath("org.lineageos:gradle-generatebp:+")
     }
 }
 
@@ -30,15 +30,39 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    compileSdk = 34
-    namespace = "com.mist.updater"
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.mist.updater"
         minSdk = 30
-        targetSdk = 34
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
+    }
+
+    buildTypes {
+        getByName("release") {
+            // Includes the default ProGuard rules files.
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            )
+        }
+        getByName("debug") {
+            // Append .dev to package name so we won't conflict with AOSP build.
+            applicationIdSuffix = ".dev"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 
     signingConfigs {
@@ -57,37 +81,11 @@ android {
             }
         }
     }
-
-    buildTypes {
-        getByName("release") {
-            // Includes the default ProGuard rules files.
-            setProguardFiles(
-                listOf(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
-            )
-            signingConfig = signingConfigs.getByName("release")
-        }
-        getByName("debug") {
-            signingConfig = signingConfigs.getByName("release")
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+    namespace = "com.mist.updater"
 }
 
 dependencies {
     compileOnly(fileTree(mapOf("dir" to "../system_libs", "include" to listOf("*.jar"))))
-
-    implementation(project(":SettingsLib"))
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -96,7 +94,6 @@ dependencies {
     implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.1.0")
     implementation("androidx.preference:preference:1.2.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.google.android.material:material:1.9.0-alpha01")
 }
 
